@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha D&D</title>
+    <link rel="stylesheet" href="body.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> 
+        function salvar(){
+            var erro = false
+            var nome, classe, raça
+            var str, dex, con, int, char
+            
+            event.preventDefault();
+            if (!$("#nome").val()) {
+                alert("Nome vazio")
+                erro = true
+            }
+            else {
+                nome = $("#nome").val()
+            }
+            if ($("input[name=classe]:checked").length == 0){
+                alert("Classe não selecionada")
+                erro = true
+            }
+            else{
+                classe = $("input[name=classe]:checked").val()
+            }
+            if ($("input[name=raça]:checked").length == 0){
+                alert("Raça não selecionada")
+                erro = true
+            }
+            else{
+                raça = $("input[name=raça]:checked").val()
+            }
+
+            if (!$("#str").val()) {
+                alert("Campo vazio: Força")
+                erro = true
+            }
+            else {
+                str = $("#str").val()
+            }
+            if (!$("#dex").val()) {
+                alert("Campo vazio: Destreza")
+                erro = true
+            }
+            else {
+                dex = $("#dex").val()
+            }
+            if (!$("#con").val()) {
+                alert("Campo vazio: Constituição ")
+                erro = true
+            }
+            else {
+                con = $("#con").val()
+            }
+            if (!$("#int").val()) {
+                alert("Campo vazio: Inteligência")
+                erro = true
+            }
+            else {
+                int = $("#int").val()
+            }
+            if (!$("#char").val()) {
+                alert("Campo vazio: Carisma")
+                erro = true
+            }
+            else {
+                char = $("#char").val()
+            }
+
+            if (!erro){
+                alert("Criado personagem: "+ nome + ", o/a " + raça + " " + classe + ".\n" + "Força: " + str + "\nDestreza: " + dex + "\nConstituição: " + con + "\nInteligência: " + int + "\nCarisma: " + char)
+            }
+        }
+    </script>
+    <script>
+        
+    </script>
+</head>
+
+<body>
+    
+    <div class="titulo">
+       <h1>Gerador de ficha de D&D</h1> 
+    </div>
+    <div class="body">
+    <form name="ficha" onsubmit="salvar()">
+        <h3>Nome do Personagem</h3>
+        <input type="text" id="nome" name="nome">
+        <div>
+            <h3>Classe</h3>
+            <input type="radio" name="classe" id="c_paladino" value="paladino">
+            <label for="c_paladino">Paladino</label><br>
+            <input type="radio" name="classe" id="c_mago" value="mago">
+            <label for="c_mago">Mago</label><br>
+            <input type="radio" name="classe" id="c_arqueiro" value="arqueiro">
+            <label for="c_arqueiro">Arqueiro</label><br>
+        </div>
+        <div>
+            <h3>Raça</h3>
+            <input type="radio" name="raça" id="r_humano" value="humano">
+            <label for="r_humano">Humano</label><br>
+            <input type="radio" name="raça" id="r_elfo" value="elfo">
+            <label for="r_elfo">Elfo</label><br>
+            <input type="radio" name="raça" id="r_anao" value="anao">
+            <label for="r_anao">Anão</label><br>
+        </div>
+        <div>
+            <h3>Atributos</h3>
+            <input type="number" name="str" id="str" min="0" max="10">
+            <label for="str">Força</label><br>
+            <input type="number" name="dex" id="dex" min="0" max="10">
+            <label for="dex">Destreza</label><br>
+            <input type="number" name="con" id="con" min="0" max="10">
+            <label for="con">Constituição</label><br>
+            <input type="number" name="int" id="int" min="0" max="10">
+            <label for="int">Inteligência</label><br>
+            <input type="number" name="char" id="char" min="0" max="10">
+            <label for="char">Carisma</label><br>
+        </div>
+        <br><input type="submit" value="Confirmar">
+    </form>   
+     <img src="https://www.elderwoodacademy.com/wp-content/uploads/2017/01/winged-dragon.png">
+    </div>
+    
+</body>
+
+</html>
